@@ -1,0 +1,10 @@
+﻿div {
+    background: green, url('путь с картинкой');
+    background-repeat: no-repeat;
+    line-height: 1.18;
+    font: 17px/1.18;
+}
+
+div:hover {
+    background: red;
+}
