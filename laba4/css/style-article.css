@@ -15,10 +15,9 @@
 }
 
 .header__logo_font {
+    color: #000000;
+    text-decoration: none;
     padding-left: 250px;
-    font-family: 'Lora';
-    font-style: normal;
-    font-weight: 400;
     font-size: 26px;
     line-height: 26px;
     color: #2E2E2E;
@@ -26,9 +25,6 @@
 
 .header__links {
     padding-right: 270px;
-    font-family: 'Oxygen';
-    font-style: normal;
-    font-weight: 400;
     font-size: 12px;
     line-height: 20px;
 }
@@ -48,9 +44,6 @@
 .main__titel {
     text-align: center;
     padding-top: 110px;
-    font-family: 'Lora';
-    font-style: normal;
-    font-weight: 400;
     font-size: 50px;
     line-height: 51px;
     color: #2E2E2E;
@@ -60,9 +53,6 @@
     text-align: center;
     padding-top: 20px;
     padding-bottom: 113px;
-    font-family: 'Oxygen';
-    font-style: normal;
-    font-weight: 400;
     font-size: 17px;
     line-height: 20px;
     color: rgba(46, 46, 46, 0.63);
@@ -80,103 +70,7 @@
 }
 
 .main__text_font {
-    font-family: 'Oxygen';
-    font-style: normal;
-    font-weight: 400;
     font-size: 24px;
     line-height: 35px;
     color: #101315;
-}
-
-.footer {
-    height: 378px;
-    background-image: url('../images/footer.png');
-    color: #FFFFFF;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.footer__title {
-    text-align: center;
-    padding-top: 81px;
-    padding-bottom: 38px;
-    text-decoration: underline;
-    text-underline-offset: 16px;
-    font-family: 'Oxygen';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 30px;
-    text-align: center;
-    color: #EFEFEF
-}
-
-.footer__form {
-    margin-bottom: 90px;
-    display: flex;
-    gap: 3px;
-    justify-content: center;
-}
-
-.footer__form-text {
-    width: 375px;
-    height: 50px;
-    padding: 0 208px 0 35px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-    color: #817F83;
-    background: #FFFFFF;
-}
-
-.footer__form-submit {
-    width: 125px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-    color: #F8F8F8;
-    background: rgba(255, 255, 255, 0.28);
-    border-radius: 0px 3px 3px 0px;
-}
-
-.footer__after-form {
-    background: rgba(35, 47, 56, 0.6);
-    display: flex;
-    justify-content: space-between;
-}
-
-.footer__logo_font {
-    padding: 31px 0 32px 250px;
-    font-family: 'Lora';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 26px;
-}
-
-.footer__links {
-    padding: 31px 250px 32px 0;
-}
-
-.footer__link {
-    padding-left: 20px;
-    font-family: 'Oxygen';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 26px;
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none;
-}
-
-input {
-    border: 0px;
-}
-
-button {
-    border: 0px;
 }
