@@ -9,7 +9,7 @@
 }
 
 .header__background {
-    background-image: url('../images/header-background.jpg');
+    background-image: url('../img/header-background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     color: #FFFFFF;
@@ -24,7 +24,6 @@
 
 .header__links {
     line-height: 20px;
-    color: #FFFFFF;
     font-size: 12px;
 }
 
@@ -126,15 +125,17 @@
     justify-content: center;
 }
 
+/*
 .post-left__background {
-    background-image: url('../images/mouns.png');
+    background-image: url('../img/mouns.png');
     background-repeat: no-repeat;
-}
+}*/
 
+/*
 .post-right__background {
-    background-image: url('../images/fires.png');
+    background-image: url('../img/fires.png');
     background-repeat: no-repeat;
-}
+}*/
 
 .post__title {
     padding-left: 20px;
