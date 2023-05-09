@@ -1,0 +1,30 @@
+.addImg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0px;
+}
+
+.addImg__size {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+}
+
+.addImg__button {
+    background: url("/static/img/camera.svg") no-repeat center center;
+    background-repeat: no-repeat;
+}
+
+.addImg__button_display {
+    display: flex;
+    align-items: center;
+}
+
+.removeImg__button {
+    background: url("/static/img/trash-2.svg") no-repeat center center;
+    background-repeat: no-repeat;
+}
+
+.buttons__display {
+    display: flex;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>laba8</title>
+  <link href="static/css/login.css" rel="stylesheet" type="text/css">
+  <link href="static/css/style-public.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+  <script src="static/js/login.js"></script>
+</head>
+<body class="body__section_backgroud">
+  <div class="body__display">
+    <div>
+      <h1 class="title">Escape.<span class="title__author"> author </span></h1>
+      <p class="subtitle">
+        Log in to start creating
+      </p>
+    </div>
+    <form class="login">
+      <p class="login__title">
+        Log In
+      </p>
+      <label class="login__email_margin">
+        <p class="login__name">Email</p>
+        <label class="login__field">
+          <input name="email" class="login__field_input"  placeholder=" "> 
+        </label>
+      </label>
+      <div class="login__password_margin">
+        <p class="login__name">Password</p> 
+          <label class="login__field">
+            <input id="password" name="password" class="login__field_input" type="password" placeholder=" ">
+            <img class="login__field_icon" src="/static/img/eye.svg" onclick={showPassword()}>
+          </label>
+      </div>
+      <button class="button-style button__size">
+        Log In
+      </button>
+    </form>
+  </div>
+</body>
+</html>

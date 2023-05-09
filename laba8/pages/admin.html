@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>laba8</title>
+  <link href="static/css/admin.css" rel="stylesheet" type="text/css">
+  <link href="static/css/admin-js.css" rel="stylesheet" type="text/css">
+  <link href="static/css/style-public.css" rel="stylesheet" type="text/css">
+  <script src="static/js/admin.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header__background">
+    <h1 class="title">Escape.<span class="title__author">author</span></h1>
+    <div class="avatar-login">
+      <div class="avatar__letter">
+        N
+      </div>
+      <img class="log-out__img" src="/static/img/log-out.svg" alt="log-out">
+    </div>
+  </header>
+  <main class="main__background">
+    <form class="main__form">
+      <div class="preview">
+        <div>
+          <h2 class="preview__title">New Post</h2>
+          <p class="preview__name_font">Fill out the form bellow and publish your article</p>
+        </div>
+        <input class="button-style button__size" onclick={publish(event)} type="submit" value="Publsih">
+      </div>
+      <div class="main-information">
+        <p class="form__block_name">Main Information</p>
+        <div class="form__blocks">
+          <div>
+            <label>
+              <p class="name__font">Title</p>
+              <input id="input-title" name="title" class="input__text" onchange={setTitle()} placeholder="New Post" required>
+            </label>
+            <label>
+              <p class="name__font">Short description</p>
+              <input id="input-discp" name="description" class="input__text" onchange={setDiscription()} placeholder="Please, enter any description" required>
+            </label>
+            <label>
+              <p class="name__font">Author name</p>
+              <input id="input-name" name="author" class="input__text" onchange={setAuthorName()} required>
+            </label>
+            <div>
+              <p class="name__font">Author Photo</p>
+              <label class="form__author-photo">
+                <div class="form__author-photo_img">
+                  <input name="avatarImg" type="file" onchange={loadAvatar(event)} required>
+                </div>
+                <p class="form__author-photo_upload">Upload</p>
+              </label>
+            </div>
+            <label>
+              <p class="name__font">Publish Date</p>
+              <input id="input-date" name="date" class="input__text" onchange={setDate()} type="date" value="2022-05-01" required>
+            </label>
+            <div class="hero-img">
+              <p class="name__font">Hero Image</p>
+              <label class="form__hero-img form__hero-img-big_size">
+                <input type="file" name="image" onchange={loadImage(event)} required>
+                <img class="form__hero-img_img" src="/static/img/camera.svg">
+                <p class="form__hero-img_upload">Upload</p>
+              </label>
+              <p class="subname__font">Size up to 10mb. Format: png, jpeg, gif.</p>
+            </div>
+            <div class="hero-img">
+              <p class="name__font">Hero Image</p>
+              <label class="form__hero-img form__hero-img-little_size">
+                <input type="file" name="image" onchange={loadImage(event)} required>
+                <img class="form__hero-img_img" src="/static/img/camera.svg">
+                <p class="form__hero-img_upload">Upload</p>
+              </label>
+              <p class="subname__font">Size up to 5mb. Format: png, jpeg, gif.</p>
+            </div>
+          </div>
+          <div>
+            <div>
+              <p class="name__font">Article preview</p>
+              <div class="box-show__border">
+                <div class="box-show__border-deep">
+                  <div class="box-show__border-deep_header">
+                    <div class="box-show__border-deep_cicle"></div>
+                    <div class="box-show__border-deep_cicle"></div>
+                    <div class="box-show__border-deep_cicle"></div>
+                  </div>
+                  <p class="box-show__title">New Post</p>
+                  <p class="box-show__subtitle">Please, enter any description</p>
+                  <div class="box-show__img"></div>
+                </div>
+                <div class="box-show__shadow_right"></div>
+                <div class="box-show__shadow_bot"></div>
+              </div>
+            </div>
+            <div>
+              <p class="name__font">Post card preview</p>
+              <div class="box-show__border">
+                <div class="box-show__card">
+                  <div class="box-show__card_img"></div>
+                  <div class="box-show__card_title">New Post</div>
+                  <div class="box-show__card_subtitle">
+                    Please, enter any description
+                  </div>
+                  <div class="box-show__card_author-data">
+                    <div class="box-show__card_author">
+                      <img class="box-show__card_author-img">
+                      <p id="avtar-name">Enter author name</p>
+                    </div>
+                    <p id="date">4/19/2023</p>
+                  </div>
+                  <div class="box-show-card__shadow_right"></div>
+                  <div class="box-show-card__shadow_bot"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <p class="form__block_name">Content</p>
+        <p class="name__font">Post content (plain text)</p>
+        <label>
+          <div>
+            <textarea name="content" class="content__text_value" placeholder="Type anything you want ..." required></textarea>
+          </div>
+        </label>
+      </div>
+    </form>
+  </main>
+</body>
+</html>
