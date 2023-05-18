@@ -1,27 +1,28 @@
-.addImg {
+.add-img {
     background-repeat: no-repeat;
     background-size: cover;
-    border: 0px;
+    border: 0;
 }
 
-.addImg__size {
+.add-img__size {
     width: 48px;
     height: 48px;
     border-radius: 24px;
 }
 
-.addImg__button {
-    background: url("/static/img/camera.svg") no-repeat center center;
+.add-img__button {
+    background: url('/static/img/camera.svg') no-repeat center center;
     background-repeat: no-repeat;
 }
 
-.addImg__button_display {
+.add-img__button_display {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
-.removeImg__button {
-    background: url("/static/img/trash-2.svg") no-repeat center center;
+.remove-img__button {
+    background: url('/static/img/trash-2.svg') no-repeat center center;
     background-repeat: no-repeat;
 }
 

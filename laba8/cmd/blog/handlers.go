@@ -37,6 +37,18 @@ type indexPage struct {
 	MostRecentPosts []postData
 }
 
+// type createPostRequest struct {
+// 	Title           string `json:"title"`
+// 	SubTitle        string `json:"subtitle"`
+// 	AuthorName      string `json:"authorname"`
+// 	AuthorPhoto     string `json:"authorphoto"`
+// 	AuthorPhotoName string `json:"authorphotoname"`
+// 	Date            string `json:"date"`
+// 	BigImage        string `json:"bigimage"`
+// 	BigImageName    string `json:"bigimagename"`
+// 	Content         string `json:"content"`
+// }
+
 func index(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		posts, err := getPosts(db, 1)
@@ -156,6 +168,19 @@ func admin(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 }
+
+// func createPost(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
+// 	return func(w http.ResponseWriter, r *http.Request) {
+// 		reqData, err := io.ReadAll(r.Body)
+// 		if err != nil {
+// 			http.Error(w, "1Error", 500)
+// 			log.Println(err.Error())
+// 			return
+// 		}
+
+// 		return
+// 	}
+// }
 
 func getPosts(db *sqlx.DB, feature int) ([]postData, error) {
 	var query = ""
