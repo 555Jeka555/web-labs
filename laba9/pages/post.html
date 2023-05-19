@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>laba8</title>
+  <link href="/static/css/style-article.css" rel="stylesheet" type="text/css">
+  <link href="/static/css/style-public.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="header__display-flex">
+      <a class="header__logo_font text__font_lora" href="/home">Escape.</a>
+      <nav class="header__links text__font_oxygen"> 
+        <a class="header__link" href="#">HOME</a>
+        <a class="header__link" href="#">CATEGORIES</a>
+        <a class="header__link" href="#">ABOUT</a>
+        <a class="header__link" href="#">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+  <article class="main__color">
+    <h1 class="main__titel text__font_lora">{{ .Title }}</h1>
+    <p class="main__subtitel text__font_oxygen">{{ .Subtitle }}</p>
+    <img class="article__image_size" src="/{{ .ImgModifier }}" alt="mouns">
+    <div class="main__text_display">
+      <p class="main__text_font text__font_lora">
+        {{ .Content }}
+      </p>
+    </div>
+  </article>
+  <footer class="footer">
+    <h2 class="footer__title text__font_oxygen">Stay in Touch</h2>
+    <form class="footer__form text__font_roboto">
+      <input class="footer__form-text" type="text" placeholder="Enter your email address">
+      <input class="footer__form-submit" type="submit" placeholder="Submit">
+    </form>
+    <div class="footer__after-form">
+      <a class="footer__logo_font" href="#">Escape.</a>
+      <nav class="footer__links text__font_oxygen">
+        <a class="footer__link" href="#">HOME</a>
+        <a class="footer__link" href="#">CATEGORIES</a>
+        <a class="footer__link" href="#">ABOUT</a>
+        <a class="footer__link" href="#">CONTACT</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
