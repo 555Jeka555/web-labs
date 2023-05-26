@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>laba10</title>
+  <link href="static/css/style.css" rel="stylesheet" type="text/css">
+  <link href="static/css/style-public.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header header__background"> 
+    <div class="header__display-flex">
+      <a class="header__logo_font text__font_lora" href="#">{{ .Title }}</a>
+      <nav class="header__links text__font_oxygen">
+        <a class="header__link" href="#">HOME</a>
+        <a class="header__link" href="#">CATEGORIES</a>
+        <a class="header__link" href="#">ABOUT</a>
+        <a class="header__link" href="#">CONTACT</a>
+        </nav>
+    </div>
+    <h1 class="header__title_font text__font_lora">Let`s do it together</h1>
+    <p class="header__subtitle_font text__font_oxygen">We travel the world in search of stories. Come along for the ride.</p>
+    <div class="header__button text__font_oxygen">
+        <button class="header__button_font text__font_oxygen">View Latest Posts</button>
+    </div>
+  </header>
+  <nav class="links-after-header text__font_lora">
+    <a class="link-after-header__item" href="#">Nature</a>
+    <a class="link-after-header__item" href="#">Photography</a>
+    <a class="link-after-header__item" href="#">Relaxation</a>
+    <a class="link-after-header__item" href="#">Vacation</a>
+    <a class="link-after-header__item" href="#">Travel</a>
+    <a class="link-after-header__item" href="#">Adventure</a>
+  </nav>
+  <section class="body__section_backgroud">
+    <h2 class="title__font text__font_oxygen">Featured Posts</h2>
+    <div class="posts__display">
+      {{ range .FeaturedPosts }}
+        <a href="{{ .PostURL }}">
+          <div style="background-image: url('{{ .ImgModifier }}')" class="post">
+            <p class="post__title text__font_lora post__title-left_paddig">{{ .Title }}</p>
+            <p class="post__subtitle text__font_oxygen">{{ .Subtitle }}</p>
+            <div class="post__author-date_display">
+              <div class="post__author_display">
+                <img class="post__author-image" src="{{ .AuthorImg }}" alt="Mat Vogels">
+                <p class="post__author-name text__font_oxygen">{{ .Author }}</p>
+              </div>
+              <p class="post__date text__font_oxygen">{{ .PublishDate }}</p>
+            </div>
+          </div>
+        </a>
+      {{ end }}
+    </div>
+    <h2 class="title__font text__font_oxygen">Most Recent</h2>
+    <div class="mini-posts__display">
+      {{ range .MostRecentPosts }}
+      <a href="{{ .PostURL }}">
+        <div>
+          <div class="mini-post__main-titles">
+            <img class="mini-post__imgage_size" src="{{ .ImgModifier }}" alt="Balls">
+            <p class="mini-post__title text__font_lora">{{ .Title }}</p>
+            <p class="mini-post__subtitle text__font_oxygen text__font_oxygen">{{ .Subtitle }}</p>
+          </div>
+          <div class="mini-post__after-main">
+            <div class="post__author_display">
+              <img class="post__author-image " src="{{ .AuthorImg }}" alt="Mat Vogels">
+              <p class="mini-post__author-name text__font_oxygen">{{ .Author }}</p>
+            </div>
+            <p class="mini-post__date text__font_oxygen">{{ .PublishDate }}</p>
+          </div>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  <footer class="footer">
+    <h2 class="footer__title text__font_oxygen">Stay in Touch</h2>
+    <form class="footer__form text__font_roboto">
+      <input class="footer__form-text" type="text" placeholder="Enter your email address">
+      <input class="footer__form-submit" type="submit">
+    </form>
+    <div class="footer__after-form">
+      <a class="footer__logo_font" href="#">Escape.</a>
+      <nav class="footer__links text__font_oxygen">
+        <a class="footer__link" href="#">HOME</a>
+        <a class="footer__link" href="#">CATEGORIES</a>
+        <a class="footer__link" href="#">ABOUT</a>
+        <a class="footer__link" href="#">CONTACT</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
