@@ -1,0 +1,126 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    padding-top: 20px;
+}
+
+.header__display-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* gap: 294px; */
+}
+
+.header__logo_font {
+    color: #000000;
+    text-decoration: none;
+    padding-left: 250px;
+    font-size: 26px;
+    line-height: 26px;
+    color: #2E2E2E;
+}
+
+.header__links {
+    display: flex;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+@media screen and (min-width: 480px) {
+    .header__logo_font {
+        padding-left: 0;
+        margin: 20px 264px 0 20px;
+    }
+
+    .header__links {
+        flex-direction: column;
+        margin-right: 40px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .header__logo_font {
+        padding-left: 0;
+        margin: 20px 210px 0 40px;
+    }
+
+    .header__links {
+        flex-direction: row;
+        padding: 20px;
+        padding-right: 41px;
+    }
+}
+
+@media screen and (min-width: 1366px) {
+    .header__logo_font {
+        padding-left: 0;
+        margin: 20px 491px 0 250px;
+    }
+
+    .header__links {
+        flex-direction: row;
+        padding: 20px;
+    }
+}
+
+.header__link {
+    padding-left: 20px;
+    color: #2E2E2E;
+    text-decoration: none;
+}
+
+.article__image_size {
+    width: 100%;
+    background-repeat: no-repeat;
+    height: 534px;
+}
+
+@media screen and (max-width: 480px) {
+    .article__image_size {
+        width: 500px;
+    }
+}
+
+.main__titel {
+    text-align: center;
+    padding-top: 110px;
+    font-size: 50px;
+    line-height: 51px;
+    color: #2E2E2E;
+}
+
+.main__subtitel {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 113px;
+    font-size: 17px;
+    line-height: 20px;
+    color: rgba(46, 46, 46, 0.63);
+}
+.main__color {
+    color: rgba(46, 46, 46, 0.63);
+}
+
+.main__text_display {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    padding: 140px 240px 135px 240px;
+}
+
+@media screen and (min-width: 480px) {
+
+    .main__text_display {
+        padding: 35px 60px 33px 60px;
+    }
+}
+
+.main__text_font {
+    font-size: 24px;
+    line-height: 35px;
+    color: #101315;
+}

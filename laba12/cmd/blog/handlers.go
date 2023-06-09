@@ -4,9 +4,12 @@ import (
 	"database/sql"
 	"encoding/base64"
 	"encoding/json"
+	"errors"
+	"fmt"
 	"io"
 	"os"
 	"strings"
+	"time"
 
 	"html/template"
 	"log"
@@ -16,6 +19,8 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/jmoiron/sqlx"
 )
+
+const authCookieName = "authCookieName"
 
 type postData struct {
 	PostId      string `db:"post_id"`
@@ -51,6 +56,12 @@ type createPostRequest struct {
 	Image           string `json:"hero"`
 	ImageName       string `json:"hero_name"`
 	Content         string `json:"content"`
+}
+
+type User struct {
+	Id       int    `db:"user_id"`
+	Email    string `json:"email" db:"email"`
+	Password string `json:"password" db:"password"`
 }
 
 func index(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
@@ -157,6 +168,11 @@ func admin(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/html")
 
+		err := authByCookie(db, w, r)
+		fmt.Println(err)
+		if err != nil {
+			return
+		}
 		ts, err := template.ParseFiles("pages/admin.html")
 		if err != nil {
 			http.Error(w, "Internal Server Error", 500)
@@ -171,6 +187,103 @@ func admin(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	}
+}
+
+func authByCookie(db *sqlx.DB, w http.ResponseWriter, r *http.Request) error {
+	cookie, err := r.Cookie(authCookieName)
+	if err != nil {
+		if err == http.ErrNoCookie {
+			http.Error(w, "No authcookie passed", 401)
+			log.Println(err)
+			return err
+		}
+		http.Error(w, "Internal Server Error", 500)
+		log.Println(err)
+		return err
+	}
+
+	userID, _ := strconv.Atoi(cookie.Value)
+	if !isCorrectUserId(db, userID) {
+		http.Error(w, "No authcookie passed", 401)
+		return errors.New("Incorrect user id")
+	}
+	return nil
+}
+
+func isCorrectUserId(db *sqlx.DB, userId int) bool {
+	var IDs []int
+	query := `select user_id from user`
+	err := db.Select(&IDs, query)
+	fmt.Println(err)
+	if err != nil {
+		return false
+	}
+	fmt.Println(len(IDs), IDs)
+	if len(IDs) == 0 {
+		return false
+	}
+
+	return true
+}
+
+func loginUser(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
+		defer r.Body.Close()
+
+		body, err := io.ReadAll(r.Body)
+		if err != nil {
+			http.Error(w, "1Error", 500)
+			log.Println("1" + err.Error())
+			return
+		}
+
+		var user User
+		err = json.Unmarshal(body, &user)
+
+		if err != nil {
+			http.Error(w, "2Error", 500)
+			log.Println("2" + err.Error())
+			return
+		}
+		if isRegisteredUser(db, user) {
+			http.SetCookie(w, &http.Cookie{
+				Name:    authCookieName,
+				Value:   fmt.Sprint(user.Id),
+				Path:    "/",
+				Expires: time.Now().AddDate(0, 0, 1),
+			})
+			w.WriteHeader(http.StatusOK)
+		} else {
+			http.Error(w, "Incorrect password or email", 401)
+		}
+	}
+}
+
+func isRegisteredUser(db *sqlx.DB, user User) bool {
+	query := `SELECT user_id, email, password FROM user WHERE email =?`
+
+	var users []User
+	err := db.Select(&users, query, user.Email)
+	if err != nil {
+		return false
+	}
+
+	if len(users) == 0 {
+		return false
+	}
+	if users[0].Password != user.Password {
+		return false
+	}
+	return true
+}
+
+func logoutUser(w http.ResponseWriter, r *http.Request) {
+	http.SetCookie(w, &http.Cookie{
+		Name:    authCookieName,
+		Path:    "/",
+		Expires: time.Now().AddDate(0, 0, -1),
+	})
+	w.WriteHeader(http.StatusOK)
 }
 
 func createPost(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {

@@ -1,0 +1,37 @@
+.error__block {
+    display: flex;
+    width: 400px;
+    background: #FFEBEA;
+    border-left: 2px solid #E86961;
+    border-radius: 5px;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 12px 14px;
+    margin-bottom: 40px;
+    animation-duration: 1s;
+    animation-name: massage;
+}
+
+@keyframes massage
+{
+    from
+    {
+        height: 0;
+        opacity: 0;
+    }
+    to
+    {
+        height: 22px;
+        opacity: 1;
+    }
+}
+
+.error__p {
+    font: 400 12px/1.3 'Oxygen', sans-serif;
+    color: #E86961;
+}
+
+.error__message {
+    margin-left: 12px;
+    font: 400 14px/1.4 'Oxygen', sans-serif;
+}
